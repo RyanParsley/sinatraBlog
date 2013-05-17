@@ -1,3 +1,4 @@
+require 'rubygems'
 require 'sinatra/base'
 require 'github_hook'
 require 'ostruct'
@@ -34,7 +35,7 @@ class Blog < Sinatra::Base
 
     #set up the route
     get "/#{article.slug}" do
-      erb :post, :locals => {:article =>article}
+      erb :post, :locals => {:article => article}
     end
 
     # Add article to list of articles
