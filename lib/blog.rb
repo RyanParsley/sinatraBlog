@@ -1,9 +1,9 @@
-require 'rubygems'
 require 'sinatra/base'
 require 'github_hook'
 require 'ostruct'
 require 'time'
 require 'yaml'
+require 'redcarpet'
 
 class Blog < Sinatra::Base
   # File.expand_path generates an absolute path.   
