@@ -8,16 +8,17 @@ class GithubHook < Sinatra::Base
     set :commit_hash, sha1
     set :commit_date, Time.parse(date)
   end
+
   set(:autopull) { production? }
   parse_git
-  
+
   before do
     cache_control :public, :must_revalidate
     etag settings.commit_hash
     last_modified settings.commit_date
   end
 
-  post '/update' do
+  post "/update" do
     settings.parse_git
 
     app.settings.reset!
